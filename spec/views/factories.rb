@@ -4,8 +4,9 @@ require 'factory_girl'
 		factory :owner do
 			first_name "Joey"
 			last_name "Phelps"
-			address "PO Box 24866"
+			street "abe aldardaa"
 			country "QA"
+			city "Doha"
 			email "joey@joeyphelps.com"
 			phone "97444548624"
 			active true

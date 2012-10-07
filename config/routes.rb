@@ -4,6 +4,7 @@ Homework2::Application.routes.draw do
   
   resources :owners
   
+  
   match 'Home/about' => 'Home#about'
   match 'Home/index' => 'Home#index'
   match 'Home/contact' => 'Home#contact'
