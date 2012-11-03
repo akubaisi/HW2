@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Homework2</title>
+  <title><%= set_title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
-<%= render :partial => 'partials/footer' %>
+  <div id="wrap">
+    <div id="header">
+      <%= link_to(image_tag('layout/QATS_banner_900.jpg'), root_path) %>
+    </div>
+    <br/>
+    <div style="clear:both;"></div>
+    <div id="body">
+      <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+	  <table border="0">
+	    <tr>
+	      <td>
+	        <!-- if logged in, give side navigation for the vet -->
+	        <!-- render :partial => 'partial/animal_pics' -->
+	      </td>
+	      <td width ="5">&nbsp;</td>
+	      <td><%= yield %></td>
+	    </tr>
+	  </table>
+	</div> <!-- end of body div -->
+
+    <%= render :partial => 'partials/footer' %>
+  </div> <!-- end of wrap div -->
+
 </body>
 </html>

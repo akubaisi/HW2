@@ -8,6 +8,10 @@ require 'factory_girl'
 			:active => true}
 		end
 	
+		it "should have appropriate associations" do
+			should have_many(:pets)
+		end
+		
 		describe "Validation Macros" do
 			it{should validate_presence_of(:first_name)}
 			it{should validate_presence_of(:last_name)}
@@ -21,6 +25,7 @@ require 'factory_girl'
 		#	it{should allow_value("my.fred@fred.org").for(:email)}
 		#	it{should allow_value("fred@fred.gov").for(:email)}
 		#	it{should allow_value("1234fred@fred.net").for(:email)}
+		pending
 		end
 		
 		describe "Rejects bad emails" do
@@ -29,20 +34,22 @@ require 'factory_girl'
 		#	it{should_not allow_value("fred@fred.uk").for(:email)}
 		#	it{should_not allow_value("my fred@fred.com").for(:email)}
 		#	it{should_not allow_value("fred@fred.con").for(:email)}
+		pending
+		
 		end
 
 	describe "Validates good phone numbers" do
-		#it{should allow_value("97444548624").for(:phone)}
+		pending#it{should allow_value("97444548624").for(:phone)}
 	end
 	describe "Rejects bad phone numbers" do
 		#it{should_not allow_value("800-EAT-FOOD").for(:phone)}
 	end
 	describe "Validates good country" do
-		#it{should allow_value("QA").for(:country)}
+		pending#it{should allow_value("QA").for(:country)}
 	end
 	
 	describe "Rejects bad ountry" do
-		#it{should_not allow_value("bad").for(:country)}
+		pending#it{should_not allow_value("bad").for(:country)}
 	end
 	
 	describe "Creating three owner" do
@@ -97,7 +104,7 @@ require 'factory_girl'
 		end
 		
 		it "should return the names in alphabetical order" do
-			Owner.alphabetical.map{|o| o.first_name}.shold == ["gianna", "Joey", "Ryn"]
+			Owner.alphabetical.map{|o| o.first_name}.should == ["gianna", "Joey", "Ryn"]
 		end
 		
 		it "should return only active owners" do

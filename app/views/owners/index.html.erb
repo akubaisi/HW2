@@ -1,15 +1,10 @@
-<h1>Listing owners</h1>
+<h1>Pet Owners Served by QATS</h1>
 
-<table>
+<table id ="Owner List">
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Street</th>
-    <th>City</th>
-    <th>Country</th>
+    <th>Owner</th>
     <th>Phone</th>
     <th>Email</th>
-    <th>Active</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,14 +12,9 @@
 
 <% @owners.each do |owner| %>
   <tr>
-    <td><%= owner.first_name %></td>
-    <td><%= owner.last_name %></td>
-    <td><%= owner.street %></td>
-    <td><%= owner.city %></td>
-    <td><%= owner.country %></td>
-    <td><%= owner.phone %></td>
+    <td><%= owner.name %></td>
+	<td><%= owner.phone %></td>
     <td><%= owner.email %></td>
-    <td><%= owner.active %></td>
     <td><%= link_to 'Show', owner %></td>
     <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
     <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Owner', new_owner_path %>
+<%= link_to 'Add a New Owner', new_owner_path %>

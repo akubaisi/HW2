@@ -21,23 +21,23 @@
 		end
 		
 		When /^I follow the create path$/ do
-		#	visit owners_new_path
+			#visit new_owner_path
 		end
 		
 		When /^I open owners page$/ do
-		#	visit owners_path
+		pending #	visit owners_path
 		end
 		
-		Then /^I should be seeing "(.*?)" as the heading$/ do |message|
-		#	page.should have_content message
+		Then /^I should be seeing "(.*?)" as the heading$/ do |title|
+		pending #	page.should have_content title
 		end
 		
 		When /^I follow the update path$/ do
-			pending #	visit owners_update_path
+			pending #..	visit owners_update_path
 		end
 	
 		When /^I follow the delete path$/ do
-			pending #		visit owners_destroy_path
+			pending #..		visit owners_destroy_path
 		end
 		
 		When /^I enter "(.*?)" in "(.*?)"$/ do |arg1, arg2|
@@ -64,10 +64,129 @@
 			pending
 		end
 		
-		When /^click the delete button for owner of id "(.*?)"$/ do |arg1|
-		pending
+		
+		#Given /^an initial business$/ do
+		#	@cat = FactoryGirl.create(:animal)
+		#	@dog = FactoryGirl.create(:animal, :name => "Dog")
+		#	@gianna = FactoryGirl.create(:owner, :first_name => "Gianna")
+		#	@joey = FactoryGirl.create(:owner)
+		#	@Ryn = FactoryGirl.create(:owner, :first_name => "Ryn")
+		#	@spot = FactoryGirl.create(:pet, :name => "Spot", :animal => @dog, :owner => @joey, :female => true, :active => false)
+		#	@boots = FactoryGirl.create(:pet, :animal => @cat, :owner => @joey, :active => false)
+		#	@puss = FactoryGirl.create(:pet, :name => "Puss", :animal => @cat, :owner => @ryn)			
+		#	@henry = FactoryGirl.create(:pet, :name => "Henry", :animal => @dog, :owner => @gianna)
+		#end
+		
+		Then /^in the "(.*?)", I should see "(.*?)"$/ do |tag,value|
+			page.should have_css(tag, :text => value)
 		end
 		
-		Then /^I should see nil for owner of id "(.*?)"$/ do |arg1|
-		pending
+		Given /^I am on the 'owners' page$/ do
+			visit owners_path
 		end
+		
+		Then /^I should see a link to "(.*?)" in the "(.*?)"$/ do |csstag,value|
+			within csstag do
+			page.should have_link value
+			end
+		end
+		
+		When /^I follow the "(.*?)" link for "(.*?)"$/ do |link, cell_value|
+			within_table('Owner List') do
+				within('tr', :text => cell_value) do
+					find('a', :text => link).click
+				end
+			end
+		end
+		
+		When /^I change the email address "(.*?)" to "(.*?)"$/ do |oldemail, newemail|
+			fill_in "Email", :with => newemail
+		end
+		
+		When /^I click the button "(.*?)"$/ do |buttonname|
+			click_button buttonname
+		end
+		
+		When /^in the "(.*?)", I should be seeing "(.*?)"$/ do |arg1, arg2|
+			pending
+		end
+				
+		When /^I follow the create pet path$/ do
+		pending
+		end		
+		
+		
+		When /^I follow the create animal path$/ do
+		pending
+		end		
+		
+		
+		When /^I follow the create visit path$/ do
+		pending
+		end		
+		
+		
+		When /^I follow the create vaccine path$/ do
+		pending
+		end		
+		
+		
+		When /^I follow the create vaccination path$/ do
+		pending
+		end		
+		
+		
+		When /^I open pets page$/ do
+		pending
+		end		
+		
+		When /^I open animal page$/ do
+		pending
+		end		
+		When /^I open vaccine page$/ do
+		pending
+		end		
+		When /^I open visit page$/ do
+		pending
+		end		
+		When /^I open vaccination page$/ do
+		pending
+		end		
+		
+		When /^I follow the delete pet path$/ do
+		pending
+		end		
+		
+		When /^I follow the delete animal path$/ do
+		pending
+		end		
+		
+		When /^I follow the delete visit path$/ do
+		pending
+		end		
+		
+		When /^I follow the delete vaccine path$/ do
+		pending
+		end		
+		
+		When /^I follow the delete vaccination path$/ do
+		pending
+		end		
+		
+		
+		When /^I follow the update pet path$/ do
+		pending
+		end		
+		
+		When /^I follow the update animal path$/ do
+		pending
+		end		
+		When /^I follow the update visit path$/ do
+		pending
+		end		
+		When /^I follow the update vaccine path$/ do
+		pending
+		end		
+		When /^I follow the update vaccination path$/ do
+		pending
+		end		

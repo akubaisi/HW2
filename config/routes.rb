@@ -1,14 +1,25 @@
 Homework2::Application.routes.draw do
   
+  resources :vaccinations
+
+  resources :vaccines
+
+  resources :visits
+
+  resources :pets
+
+  resources :animals
+
   root :to => 'Home#index'
   
-  resources :owners
+  resources :owners #vaccination, animals, ..
   
   
   match 'Home/about' => 'Home#about'
   match 'Home/index' => 'Home#index'
   match 'Home/contact' => 'Home#contact'
   match 'Home/privacy' => 'Home#privacy'
+  
   
   get "owners/index"
 

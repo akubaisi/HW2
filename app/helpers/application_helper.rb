@@ -9,5 +9,8 @@ def title
 		end
 end
 
+def set_title
+	@title ? "QATS :: #{@title}" : "QATS :: Doha"
+end
 
 end

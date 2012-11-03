@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121006144324) do
+ActiveRecord::Schema.define(:version => 20121102162242) do
+
+  create_table "animals", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "owners", :force => true do |t|
     t.string   "first_name"
@@ -22,6 +28,41 @@ ActiveRecord::Schema.define(:version => 20121006144324) do
     t.string   "phone"
     t.string   "email"
     t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pets", :force => true do |t|
+    t.integer  "animal_id"
+    t.integer  "owner_id"
+    t.string   "name"
+    t.boolean  "female"
+    t.date     "date_of_birth"
+    t.boolean  "active"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "vaccinations", :force => true do |t|
+    t.integer  "vaccine_id"
+    t.integer  "visit_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "vaccines", :force => true do |t|
+    t.string   "name"
+    t.integer  "animal_id"
+    t.integer  "duration"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "visits", :force => true do |t|
+    t.integer  "pet_id"
+    t.date     "visit_date"
+    t.integer  "weight"
+    t.string   "notes"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

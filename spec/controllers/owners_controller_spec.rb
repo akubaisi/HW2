@@ -25,6 +25,7 @@ describe OwnersController do
   # update the return value of this method accordingly.
   def valid_attributes
 		{:first_name => "Daniel", :last_name => "Phelps", :email => "dphelps@cmu.edu", :phone => "97444548699"} #almost creating a factory
+	
 	end
  
 
